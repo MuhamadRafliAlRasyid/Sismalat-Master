@@ -1,0 +1,151 @@
+/* Reset default margin dan padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        "Inter", Arial, sans-serif; /* Konsisten dengan layout sebelumnya */
+    background-color: #f3f4f6; /* Atau gunakan bg-gray-100 dark:bg-gray-800 dari Tailwind */
+    color: #374151; /* Warna teks default Tailwind */
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 480px; /* Sedikit lebih lebar untuk fleksibilitas */
+    margin: 80px auto;
+    padding: 24px; /* Menggunakan nilai Tailwind-like */
+    background-color: white;
+    border-radius: 12px;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.08); /* Shadow lebih halus */
+    animation: fade-in 0.5s ease-out; /* Animasi masuk */
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5rem; /* Menggunakan rem untuk skalabilitas */
+    font-weight: 600;
+    color: #1e293b; /* Warna teks gelap Tailwind */
+    margin-bottom: 1.5rem;
+}
+
+input[type="email"],
+input[type="password"],
+input,
+select {
+    width: 100%;
+    padding: 10px 12px; /* Padding lebih konsisten */
+    margin: 8px 0 16px; /* Margin atas dan bawah lebih teratur */
+    border-radius: 6px;
+    border: 1px solid #d1d5db; /* Warna border Tailwind */
+    font-size: 0.875rem; /* Text-sm dari Tailwind */
+    transition:
+        border-color 0.3s,
+        box-shadow 0.3s; /* Efek transisi */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #3b82f6; /* Warna fokus biru Tailwind */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); /* Ring fokus */
+}
+
+button {
+    width: 100%;
+    background-color: #4f46e5; /* Indigo-600 */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.3s,
+        transform 0.2s; /* Efek hover */
+}
+
+button:hover {
+    background-color: #4338ca; /* Indigo-700 */
+    transform: translateY(-2px); /* Efek angkat saat hover */
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.4); /* Ring fokus */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .ml-64 {
+        margin-left: 0 !important;
+    }
+    .w-64 {
+        width: 0;
+        display: none;
+    }
+    .fixed.h-full {
+        position: static;
+    }
+    .container {
+        margin: 40px auto; /* Margin lebih kecil di mobile */
+        padding: 16px;
+        max-width: 100%; /* Full width di mobile */
+    }
+}
+
+/* Animasi */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes bounce-slow {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+.animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+}
+.animate-fade-in-up {
+    animation: fade-in-up 0.5s ease-out;
+}
+.animate-bounce-slow {
+    animation: bounce-slow 2s infinite;
+}
+.animate-pulse {
+    animation: pulse 1.5s infinite;
+}
